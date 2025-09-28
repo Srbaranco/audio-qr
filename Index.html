@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Áudio de Teste</title>
+</head>
+<body>
+  <h2>🎶 Áudio de teste automático</h2>
+
+  <audio id="player" autoplay controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById("player");
+    window.addEventListener("load", () => {
+      audio.play().catch(() => {
+        const btn = document.createElement("button");
+        btn.textContent = "▶️ Tocar Áudio";
+        btn.style.fontSize = "20px";
+        btn.style.padding = "10px 20px";
+        document.body.appendChild(btn);
+        btn.addEventListener("click", () => {
+          audio.play();
+          btn.remove();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
